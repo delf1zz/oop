@@ -42,4 +42,15 @@ class HeapSortTest {
 
         Assertions.assertArrayEquals(expected, HeapSort.sort(input));
     }
+
+    @Test
+    void testConstructor() {
+        HeapSort heapSort = new HeapSort();
+        Assertions.assertNotNull(heapSort);
+    }
+
+    @Test
+    void testNullInput() {
+        Assertions.assertNull(HeapSort.sort(null));
+    }
 }
