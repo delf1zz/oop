@@ -9,10 +9,25 @@ public class Card {
      * Перечисление мастей карт.
      */
     public enum Suit {
-        SPADES,
-        HEARTS,
-        DIAMONDS,
-        CLUBS
+        SPADES("Spades"),
+        HEARTS("Hearts"),
+        DIAMONDS("Diamonds"),
+        CLUBS("Clubs");
+
+        private final String name;
+
+        Suit(String name) {
+            this.name = name;
+        }
+
+        /**
+         * Возвращает название масти.
+         *
+         * @return Название масти.
+         */
+        public String getName() {
+            return name;
+        }
     }
 
     /**
@@ -78,6 +93,15 @@ public class Card {
      */
     public int getValue() {
         return rank.getValue();
+    }
+
+    /**
+     * Проверяет, является ли карта тузом.
+     *
+     * @return true, если карта — туз, иначе false.
+     */
+    public boolean isAce() {
+        return rank == Rank.ACE;
     }
 
     @Override
