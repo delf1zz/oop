@@ -76,6 +76,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Hand</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Класс, представляющий руку игрока или дилера в игре Блэкджек.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -88,7 +89,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">Hand</a>()</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Создает пустую руку.</div>
+</div>
 </div>
 </section>
 </li>
@@ -105,22 +108,34 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addCard(ru.nsu.egorov.Card)" class="member-name-link">addCard</a><wbr>(<a href="Card.html" title="class in ru.nsu.egorov">Card</a>&nbsp;card)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Добавляет карту в руку.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#clear()" class="member-name-link">clear</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Очищает руку от карт.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Card.html" title="class in ru.nsu.egorov">Card</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCards()" class="member-name-link">getCards</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Возвращает неизменяемый список карт в руке.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getScore()" class="member-name-link">getScore</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Подсчитывает суммарное количество очков в руке с учетом тузов.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isBlackjack()" class="member-name-link">isBlackjack</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Проверяет, собрал ли игрок "Блэкджек" (21 очко с первых двух карт).</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isBust()" class="member-name-link">isBust</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Проверяет, перебрал ли игрок больше 21 очка.</div>
+</div>
 </div>
 </div>
 </div>
@@ -142,6 +157,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="&lt;init&gt;()">
 <h3>Hand</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Hand</span>()</div>
+<div class="block">Создает пустую руку.</div>
 </section>
 </li>
 </ul>
@@ -156,36 +172,62 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="addCard(ru.nsu.egorov.Card)">
 <h3>addCard</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addCard</span><wbr><span class="parameters">(<a href="Card.html" title="class in ru.nsu.egorov">Card</a>&nbsp;card)</span></div>
+<div class="block">Добавляет карту в руку.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>card</code> - Карта для добавления.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getCards()">
 <h3>getCards</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Card.html" title="class in ru.nsu.egorov">Card</a>&gt;</span>&nbsp;<span class="element-name">getCards</span>()</div>
+<div class="block">Возвращает неизменяемый список карт в руке.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>Список карт.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getScore()">
 <h3>getScore</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getScore</span>()</div>
+<div class="block">Подсчитывает суммарное количество очков в руке с учетом тузов.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>Сумма очков.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="isBust()">
 <h3>isBust</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isBust</span>()</div>
+<div class="block">Проверяет, перебрал ли игрок больше 21 очка.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true, если сумма очков больше 21, иначе false.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="isBlackjack()">
 <h3>isBlackjack</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isBlackjack</span>()</div>
+<div class="block">Проверяет, собрал ли игрок "Блэкджек" (21 очко с первых двух карт).</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true, если в руке ровно 2 карты и 21 очко, иначе false.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="clear()">
 <h3>clear</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">clear</span>()</div>
+<div class="block">Очищает руку от карт.</div>
 </section>
 </li>
 </ul>
