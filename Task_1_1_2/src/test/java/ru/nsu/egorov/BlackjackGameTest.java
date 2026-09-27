@@ -180,8 +180,9 @@ class BlackjackGameTest {
 
     @Test
     void testPlayerBustImmediateBreak() {
-        String input = "1\n1\n1\n1\n1\n0\n";
-        BlackjackGame game = new BlackjackGame(createScannerWithInput(input));
+        String input = "1\n1\n1\n1\n1\n0\n0\n0\n";
+        Scanner scanner = createScannerWithInput(input);
+        BlackjackGame game = new BlackjackGame(scanner);
         assertDoesNotThrow(game::start);
     }
 }

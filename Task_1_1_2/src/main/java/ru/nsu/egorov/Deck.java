@@ -4,13 +4,23 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Класс, представляющий колоду из 52 игральных карт.
+ */
 public class Deck {
-    private final List<Card> cards = new ArrayList<>();
+    private final List<Card> cards;
 
+    /**
+     * Создает новую колоду карт и перемешивает ее.
+     */
     public Deck() {
+        this.cards = new ArrayList<>();
         reset();
     }
 
+    /**
+     * Сбрасывает колоду до начального состояния (52 карты) и перемешивает её.
+     */
     public final void reset() {
         cards.clear();
         for (Card.Suit suit : Card.Suit.values()) {
@@ -18,13 +28,14 @@ public class Deck {
                 cards.add(new Card(suit, rank));
             }
         }
-        shuffle();
-    }
-
-    public void shuffle() {
         Collections.shuffle(cards);
     }
 
+    /**
+     * Вытягивает одну карту из колоды. Если колода пуста, автоматически пересоздает ее.
+     *
+     * @return Вытянутая карта.
+     */
     public Card drawCard() {
         if (cards.isEmpty()) {
             reset();
@@ -32,7 +43,12 @@ public class Deck {
         return cards.remove(cards.size() - 1);
     }
 
-    public int remainingCards() {
+    /**
+     * Возвращает количество оставшихся карт в колоде.
+     *
+     * @return Количество карт.
+     */
+    public int size() {
         return cards.size();
     }
 }

@@ -2,6 +2,9 @@ package ru.nsu.egorov;
 
 import java.util.Scanner;
 
+/**
+ * Класс, отвечающий за основную логику и управление раундами игры в Блэкджек.
+ */
 public class BlackjackGame {
     private final Deck deck;
     private final Hand playerHand;
@@ -12,10 +15,21 @@ public class BlackjackGame {
     private int dealerScore = 0;
     private int roundNumber = 1;
 
+    /**
+     * Конструктор игры с колодой по умолчанию.
+     *
+     * @param scanner Объект Scanner для чтения ввода пользователя.
+     */
     public BlackjackGame(Scanner scanner) {
         this(scanner, new Deck());
     }
 
+    /**
+     * Конструктор игры с кастомной колодой (используется для тестирования).
+     *
+     * @param scanner Объект Scanner для чтения ввода пользователя.
+     * @param deck    Объект колоды карт.
+     */
     public BlackjackGame(Scanner scanner, Deck deck) {
         this.deck = deck;
         this.playerHand = new Hand();
@@ -23,6 +37,9 @@ public class BlackjackGame {
         this.scanner = scanner;
     }
 
+    /**
+     * Запускает главный игровой цикл с возможностью проводить несколько раундов.
+     */
     public void start() {
         System.out.println("Добро пожаловать в Блэкджек!");
 
@@ -36,11 +53,14 @@ public class BlackjackGame {
             roundNumber++;
         }
 
-        System.out.println("\nИтоговый счет: Вы " + playerScore +
-                " : " + dealerScore + " Дилер");
+        System.out.println("\nИтоговый счет: Вы "
+                + playerScore + " : " + dealerScore + " Дилер");
         System.out.println("Спасибо за игру!");
     }
 
+    /**
+     * Проводит один раунд игры.
+     */
     public void playRound() {
         playerHand.clear();
         dealerHand.clear();
@@ -97,8 +117,8 @@ public class BlackjackGame {
             Card drawn = deck.drawCard();
             dealerHand.addCard(drawn);
             System.out.println("Дилер берет карту: " + drawn);
-            System.out.println("Карты дилера: " + dealerHand.getCards() +
-                    " => Очки: " + dealerHand.getScore());
+            System.out.println("Карты дилера: " + dealerHand.getCards()
+                    + " => Очки: " + dealerHand.getScore());
         }
     }
 
@@ -124,16 +144,16 @@ public class BlackjackGame {
             System.out.println("Ничья!");
         }
 
-        System.out.println("Счет: Вы " + playerScore +
-                " : " + dealerScore + " Дилер");
+        System.out.println("Счет: Вы " + playerScore
+                + " : " + dealerScore + " Дилер");
     }
 
     private void printState(boolean showDealerAll) {
-        System.out.println("Ваши карты: " + playerHand.getCards() +
-                " => Очки: " + playerHand.getScore());
+        System.out.println("Ваши карты: " + playerHand.getCards()
+                + " => Очки: " + playerHand.getScore());
         if (showDealerAll) {
-            System.out.println("Карты дилера: " + dealerHand.getCards() +
-                    " => Очки: " + dealerHand.getScore());
+            System.out.println("Карты дилера: " + dealerHand.getCards()
+                    + " => Очки: " + dealerHand.getScore());
         } else {
             Card firstCard = dealerHand.getCards().get(0);
             System.out.println("Карты дилера: [" + firstCard + ", <закрытая карта>]");
