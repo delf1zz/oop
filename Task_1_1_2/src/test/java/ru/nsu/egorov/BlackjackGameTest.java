@@ -1,14 +1,13 @@
 package ru.nsu.egorov;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 import java.io.ByteArrayInputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import org.junit.jupiter.api.Test;
 
 class BlackjackGameTest {
 
