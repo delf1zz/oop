@@ -36,7 +36,8 @@ public class BlackjackGame {
             roundNumber++;
         }
 
-        System.out.println("\nИтоговый счет: Вы " + playerScore + " : " + dealerScore + " Дилер");
+        System.out.println("\nИтоговый счет: Вы " + playerScore +
+                " : " + dealerScore + " Дилер");
         System.out.println("Спасибо за игру!");
     }
 
@@ -96,7 +97,8 @@ public class BlackjackGame {
             Card drawn = deck.drawCard();
             dealerHand.addCard(drawn);
             System.out.println("Дилер берет карту: " + drawn);
-            System.out.println("Карты дилера: " + dealerHand.getCards() + " => Очки: " + dealerHand.getScore());
+            System.out.println("Карты дилера: " + dealerHand.getCards() +
+                    " => Очки: " + dealerHand.getScore());
         }
     }
 
@@ -104,31 +106,34 @@ public class BlackjackGame {
         System.out.println("\n--- Результаты раунда ---");
         printState(true);
 
-        int pScore = playerHand.getScore();
-        int dScore = dealerHand.getScore();
+        int playerScoreRound = playerHand.getScore();
+        int dealerHandScore = dealerHand.getScore();
 
         if (playerHand.isBust()) {
             dealerScore++;
         } else if (dealerHand.isBust()) {
             System.out.println("У дилера перебор! Вы выиграли раунд!");
             playerScore++;
-        } else if (pScore > dScore) {
+        } else if (playerScoreRound > dealerHandScore) {
             System.out.println("Вы выиграли раунд!");
             playerScore++;
-        } else if (dScore > pScore) {
+        } else if (dealerHandScore > playerScoreRound) {
             System.out.println("Дилер выиграл раунд!");
             dealerScore++;
         } else {
             System.out.println("Ничья!");
         }
 
-        System.out.println("Счет: Вы " + playerScore + " : " + dealerScore + " Дилер");
+        System.out.println("Счет: Вы " + playerScore +
+                " : " + dealerScore + " Дилер");
     }
 
     private void printState(boolean showDealerAll) {
-        System.out.println("Ваши карты: " + playerHand.getCards() + " => Очки: " + playerHand.getScore());
+        System.out.println("Ваши карты: " + playerHand.getCards() +
+                " => Очки: " + playerHand.getScore());
         if (showDealerAll) {
-            System.out.println("Карты дилера: " + dealerHand.getCards() + " => Очки: " + dealerHand.getScore());
+            System.out.println("Карты дилера: " + dealerHand.getCards() +
+                    " => Очки: " + dealerHand.getScore());
         } else {
             Card firstCard = dealerHand.getCards().get(0);
             System.out.println("Карты дилера: [" + firstCard + ", <закрытая карта>]");

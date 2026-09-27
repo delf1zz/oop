@@ -28,7 +28,8 @@ class BlackjackGameTest {
     }
 
     private Scanner createScannerWithInput(String input) {
-        return new Scanner(new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8)));
+        byte[] bytes = input.getBytes(StandardCharsets.UTF_8);
+        return new Scanner(new ByteArrayInputStream(bytes));
     }
 
     @Test
@@ -40,7 +41,8 @@ class BlackjackGameTest {
                 new Card(Card.Suit.DIAMONDS, Card.Rank.SEVEN)
         );
         String input = "0\n";
-        BlackjackGame game = new BlackjackGame(createScannerWithInput(input), new TestDeck(cards));
+        BlackjackGame game = new BlackjackGame(
+                createScannerWithInput(input), new TestDeck(cards));
         assertDoesNotThrow(game::start);
     }
 
@@ -53,7 +55,8 @@ class BlackjackGameTest {
                 new Card(Card.Suit.DIAMONDS, Card.Rank.TEN)
         );
         String input = "0\n";
-        BlackjackGame game = new BlackjackGame(createScannerWithInput(input), new TestDeck(cards));
+        BlackjackGame game = new BlackjackGame(
+                createScannerWithInput(input), new TestDeck(cards));
         assertDoesNotThrow(game::start);
     }
 
@@ -66,7 +69,8 @@ class BlackjackGameTest {
                 new Card(Card.Suit.DIAMONDS, Card.Rank.TEN)
         );
         String input = "0\n";
-        BlackjackGame game = new BlackjackGame(createScannerWithInput(input), new TestDeck(cards));
+        BlackjackGame game = new BlackjackGame(
+                createScannerWithInput(input), new TestDeck(cards));
         assertDoesNotThrow(game::start);
     }
 
@@ -79,7 +83,8 @@ class BlackjackGameTest {
                 new Card(Card.Suit.DIAMONDS, Card.Rank.SEVEN)
         );
         String input = "0\n0\n";
-        BlackjackGame game = new BlackjackGame(createScannerWithInput(input), new TestDeck(cards));
+        BlackjackGame game = new BlackjackGame(
+                createScannerWithInput(input), new TestDeck(cards));
         assertDoesNotThrow(game::start);
     }
 
@@ -93,7 +98,8 @@ class BlackjackGameTest {
                 new Card(Card.Suit.HEARTS, Card.Rank.TEN)
         );
         String input = "1\n0\n";
-        BlackjackGame game = new BlackjackGame(createScannerWithInput(input), new TestDeck(cards));
+        BlackjackGame game = new BlackjackGame(
+                createScannerWithInput(input), new TestDeck(cards));
         assertDoesNotThrow(game::start);
     }
 
@@ -107,7 +113,8 @@ class BlackjackGameTest {
                 new Card(Card.Suit.HEARTS, Card.Rank.FOUR)
         );
         String input = "1\n0\n0\n";
-        BlackjackGame game = new BlackjackGame(createScannerWithInput(input), new TestDeck(cards));
+        BlackjackGame game = new BlackjackGame(
+                createScannerWithInput(input), new TestDeck(cards));
         assertDoesNotThrow(game::start);
     }
 
@@ -121,7 +128,8 @@ class BlackjackGameTest {
                 new Card(Card.Suit.HEARTS, Card.Rank.TEN)
         );
         String input = "0\n0\n";
-        BlackjackGame game = new BlackjackGame(createScannerWithInput(input), new TestDeck(cards));
+        BlackjackGame game = new BlackjackGame(
+                createScannerWithInput(input), new TestDeck(cards));
         assertDoesNotThrow(game::start);
     }
 
@@ -144,7 +152,8 @@ class BlackjackGameTest {
                 new Card(Card.Suit.DIAMONDS, Card.Rank.TEN)
         );
         String input = "0\n1\n0\n1\n0\n0\n";
-        BlackjackGame game = new BlackjackGame(createScannerWithInput(input), new TestDeck(cards));
+        BlackjackGame game = new BlackjackGame(
+                createScannerWithInput(input), new TestDeck(cards));
         assertDoesNotThrow(game::start);
     }
 
@@ -157,28 +166,22 @@ class BlackjackGameTest {
 
     @Test
     void testInvalidChoiceInPlayerTurn() {
-        // Передаём 'invalid', затем '0' (остановиться), затем '0' (не играть снова)
         String input = "invalid\n0\n0\n";
-        Scanner scanner = new Scanner(new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8)));
-        BlackjackGame game = new BlackjackGame(scanner);
+        BlackjackGame game = new BlackjackGame(createScannerWithInput(input));
         assertDoesNotThrow(game::start);
     }
 
     @Test
     void testQuitWithZero() {
-        // Ответ '0' на вопрос о повторном раунде
         String input = "0\n0\n";
-        Scanner scanner = new Scanner(new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8)));
-        BlackjackGame game = new BlackjackGame(scanner);
+        BlackjackGame game = new BlackjackGame(createScannerWithInput(input));
         assertDoesNotThrow(game::start);
     }
 
     @Test
     void testPlayerBustImmediateBreak() {
-        // Набираем много карт (1), пока игрок не переберет (> 21), затем завершаем '0'
         String input = "1\n1\n1\n1\n1\n0\n";
-        Scanner scanner = new Scanner(new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8)));
-        BlackjackGame game = new BlackjackGame(scanner);
+        BlackjackGame game = new BlackjackGame(createScannerWithInput(input));
         assertDoesNotThrow(game::start);
     }
 }
