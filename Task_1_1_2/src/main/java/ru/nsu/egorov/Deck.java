@@ -51,4 +51,13 @@ public class Deck {
     public int size() {
         return cards.size();
     }
+
+    /**
+     * Возвращает количество оставшихся карт в колоде (синоним size).
+     *
+     * @return Количество карт.
+     */
+    public int remainingCards() {
+        return size();
+    }
 }
