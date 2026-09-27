@@ -1,13 +1,14 @@
 package ru.nsu.egorov;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 class BlackjackGameTest {
 
@@ -152,6 +153,33 @@ class BlackjackGameTest {
     void testInvalidInputInPlayerTurn() {
         String input = "abc\n0\n0\n";
         BlackjackGame game = new BlackjackGame(createScannerWithInput(input));
+        assertDoesNotThrow(game::start);
+    }
+
+    @Test
+    void testInvalidChoiceInPlayerTurn() {
+        // Передаём 'invalid', затем '0' (остановиться), затем '0' (не играть снова)
+        String input = "invalid\n0\n0\n";
+        Scanner scanner = new Scanner(new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8)));
+        BlackjackGame game = new BlackjackGame(scanner);
+        assertDoesNotThrow(game::start);
+    }
+
+    @Test
+    void testQuitWithZero() {
+        // Ответ '0' на вопрос о повторном раунде
+        String input = "0\n0\n";
+        Scanner scanner = new Scanner(new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8)));
+        BlackjackGame game = new BlackjackGame(scanner);
+        assertDoesNotThrow(game::start);
+    }
+
+    @Test
+    void testPlayerBustImmediateBreak() {
+        // Набираем много карт (1), пока игрок не переберет (> 21), затем завершаем '0'
+        String input = "1\n1\n1\n1\n1\n0\n";
+        Scanner scanner = new Scanner(new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8)));
+        BlackjackGame game = new BlackjackGame(scanner);
         assertDoesNotThrow(game::start);
     }
 }
