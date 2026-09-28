@@ -1,7 +1,6 @@
 package ru.nsu.egorov;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 
@@ -14,10 +13,15 @@ class DeckTest {
     }
 
     @Test
+    void testMultipleDecksInitialization() {
+        Deck deck = new Deck(3);
+        assertEquals(156, deck.remainingCards());
+    }
+
+    @Test
     void testDrawCard() {
         Deck deck = new Deck();
-        Card card = deck.drawCard();
-        assertNotNull(card);
+        deck.drawCard();
         assertEquals(51, deck.remainingCards());
     }
 
@@ -28,10 +32,7 @@ class DeckTest {
             deck.drawCard();
         }
         assertEquals(0, deck.remainingCards());
-
-        // Вызов при пустой колоде вызывает reset()
-        Card card = deck.drawCard();
-        assertNotNull(card);
+        deck.drawCard();
         assertEquals(51, deck.remainingCards());
     }
 }

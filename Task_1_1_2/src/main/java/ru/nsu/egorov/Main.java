@@ -15,9 +15,9 @@ public class Main {
     public void run(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("Добро пожаловать в Блэкджек!");
-            System.out.print("Введите количество колод для игры (например, 1, 2, 4): ");
+            System.out.print("Введите количество колод для игры (например, 1, 2 или 4): ");
 
-            int numberOfDecks = 1; // значение по умолчанию
+            int numberOfDecks = 1;
             try {
                 String input = scanner.nextLine().trim();
                 if (!input.isEmpty()) {
