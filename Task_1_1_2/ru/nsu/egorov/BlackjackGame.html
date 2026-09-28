@@ -90,11 +90,16 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.util.Scanner)" class="member-name-link">BlackjackGame</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Scanner.html" title="class or interface in java.util" class="external-link">Scanner</a>&nbsp;scanner)</code></div>
 <div class="col-last even-row-color">
-<div class="block">Конструктор игры с колодой по умолчанию.</div>
+<div class="block">Конструктор игры с колодой по умолчанию (1 колода).</div>
 </div>
-<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(java.util.Scanner,ru.nsu.egorov.Deck)" class="member-name-link">BlackjackGame</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Scanner.html" title="class or interface in java.util" class="external-link">Scanner</a>&nbsp;scanner,
- <a href="Deck.html" title="class in ru.nsu.egorov">Deck</a>&nbsp;deck)</code></div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(java.util.Scanner,int)" class="member-name-link">BlackjackGame</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Scanner.html" title="class or interface in java.util" class="external-link">Scanner</a>&nbsp;scanner,
+ int&nbsp;numberOfDecks)</code></div>
 <div class="col-last odd-row-color">
+<div class="block">Конструктор игры с заданным количеством колод.</div>
+</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.util.Scanner,ru.nsu.egorov.Deck)" class="member-name-link">BlackjackGame</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Scanner.html" title="class or interface in java.util" class="external-link">Scanner</a>&nbsp;scanner,
+ <a href="Deck.html" title="class in ru.nsu.egorov">Deck</a>&nbsp;deck)</code></div>
+<div class="col-last even-row-color">
 <div class="block">Конструктор игры с кастомной колодой (используется для тестирования).</div>
 </div>
 </div>
@@ -142,10 +147,23 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="&lt;init&gt;(java.util.Scanner)">
 <h3>BlackjackGame</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">BlackjackGame</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Scanner.html" title="class or interface in java.util" class="external-link">Scanner</a>&nbsp;scanner)</span></div>
-<div class="block">Конструктор игры с колодой по умолчанию.</div>
+<div class="block">Конструктор игры с колодой по умолчанию (1 колода).</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>scanner</code> - Объект Scanner для чтения ввода пользователя.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="&lt;init&gt;(java.util.Scanner,int)">
+<h3>BlackjackGame</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">BlackjackGame</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Scanner.html" title="class or interface in java.util" class="external-link">Scanner</a>&nbsp;scanner,
+ int&nbsp;numberOfDecks)</span></div>
+<div class="block">Конструктор игры с заданным количеством колод.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>scanner</code> - Объект Scanner для чтения ввода пользователя.</dd>
+<dd><code>numberOfDecks</code> - Количество колод в игре.</dd>
 </dl>
 </section>
 </li>
