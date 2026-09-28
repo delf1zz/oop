@@ -16,12 +16,22 @@ public class BlackjackGame {
     private int roundNumber = 1;
 
     /**
-     * Конструктор игры с колодой по умолчанию.
+     * Конструктор игры с колодой по умолчанию (1 колода).
      *
      * @param scanner Объект Scanner для чтения ввода пользователя.
      */
     public BlackjackGame(Scanner scanner) {
         this(scanner, new Deck());
+    }
+
+    /**
+     * Конструктор игры с заданным количеством колод.
+     *
+     * @param scanner       Объект Scanner для чтения ввода пользователя.
+     * @param numberOfDecks Количество колод в игре.
+     */
+    public BlackjackGame(Scanner scanner, int numberOfDecks) {
+        this(scanner, new Deck(numberOfDecks));
     }
 
     /**
