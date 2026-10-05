@@ -46,7 +46,7 @@ public class Hand {
 
         for (Card card : cards) {
             score += card.getValue();
-            if (card.getRank() == Card.Rank.ACE) {
+            if (card.getRank() == Rank.ACE) {
                 aces++;
             }
         }

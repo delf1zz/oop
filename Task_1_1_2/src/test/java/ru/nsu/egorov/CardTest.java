@@ -11,9 +11,9 @@ class CardTest {
 
     @Test
     void testCardProperties() {
-        Card card = new Card(Card.Suit.HEARTS, Card.Rank.KING);
-        assertEquals(Card.Suit.HEARTS, card.getSuit());
-        assertEquals(Card.Rank.KING, card.getRank());
+        Card card = new Card(Suit.HEARTS, Rank.KING);
+        assertEquals(Suit.HEARTS, card.getSuit());
+        assertEquals(Rank.KING, card.getRank());
         assertEquals(10, card.getValue());
         assertFalse(card.isAce());
         assertEquals("Король Черви", card.toString());
@@ -21,22 +21,22 @@ class CardTest {
 
     @Test
     void testAceCard() {
-        Card card = new Card(Card.Suit.SPADES, Card.Rank.ACE);
+        Card card = new Card(Suit.SPADES, Rank.ACE);
         assertEquals(11, card.getValue());
         assertTrue(card.isAce());
     }
 
     @Test
     void testEnumsCoverage() {
-        for (Card.Suit suit : Card.Suit.values()) {
+        for (Suit suit : Suit.values()) {
             assertNotNull(suit.getName());
-            assertEquals(suit, Card.Suit.valueOf(suit.name()));
+            assertEquals(suit, Suit.valueOf(suit.name()));
         }
 
-        for (Card.Rank rank : Card.Rank.values()) {
+        for (Rank rank : Rank.values()) {
             assertNotNull(rank.getName());
             assertTrue(rank.getValue() > 0);
-            assertEquals(rank, Card.Rank.valueOf(rank.name()));
+            assertEquals(rank, Rank.valueOf(rank.name()));
         }
     }
 }

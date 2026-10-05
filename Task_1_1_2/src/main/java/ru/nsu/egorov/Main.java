@@ -8,28 +8,14 @@ import java.util.Scanner;
 public class Main {
 
     /**
-     * Точка входа в программу.
+     * Запускает основной цикл приложения и инициализирует ввод-вывод.
      *
      * @param args Аргументы командной строки.
      */
     public void run(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
-            System.out.println("Добро пожаловать в Блэкджек!");
-            System.out.print("Введите количество колод для игры (например, 1, 2 или 4): ");
-
-            int numberOfDecks = 1;
-            try {
-                String input = scanner.nextLine().trim();
-                if (!input.isEmpty()) {
-                    numberOfDecks = Integer.parseInt(input);
-                    if (numberOfDecks < 1) {
-                        numberOfDecks = 1;
-                        System.out.println("Количество колод не может быть меньше 1. Установлено: 1.");
-                    }
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Введено не число. Будет использована 1 колода по умолчанию.");
-            }
+            ConsoleWork tempUi = new ConsoleWork(scanner);
+            int numberOfDecks = tempUi.readNumberOfDecks();
 
             BlackjackGame game = new BlackjackGame(scanner, numberOfDecks);
             game.start();
@@ -37,7 +23,7 @@ public class Main {
     }
 
     /**
-     * Точка входа для запускного файла.
+     * Точка входа для запуска приложения.
      *
      * @param args Аргументы командной строки.
      */
