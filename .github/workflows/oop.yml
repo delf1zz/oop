@@ -18,11 +18,10 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      # Автоматически находит папку с заданием (ищет файл build.gradle в поддиректориях Task_*)
       - name: Find Task Directory
         id: find_task
         run: |
-          TASK_DIR=$(find . -maxdepth 2 -name "Task_*" -type d | head -n 1)
+          TASK_DIR=$(find . -maxdepth 1 -type d -name "Task_*" | sed 's|^\./||' | head -n 1)
           if [ -z "$TASK_DIR" ]; then
             echo "Error: Task directory not found!"
             exit 1
@@ -31,16 +30,16 @@ jobs:
           echo "Found task directory: $TASK_DIR"
 
       - name: Make gradlew executable
-        working-directory: ${{ steps.find_task.outputs.task_dir }}
+        working-directory: ./${{ steps.find_task.outputs.task_dir }}
         run: chmod +x ./gradlew
 
       - name: Execute Gradle build and tests
-        working-directory: ${{ steps.find_task.outputs.task_dir }}
+        working-directory: ./${{ steps.find_task.outputs.task_dir }}
         run: ./gradlew build jacocoTestReport
 
       - name: Check coverage and publish
         id: jacoco
-        uses: madrapps/jacoco-report@v1.2
+        uses: madrapps/jacoco-report@v1.6.1
         if: always()
         with:
           paths: ${{ github.workspace }}/${{ steps.find_task.outputs.task_dir }}/build/reports/jacoco/test/jacocoTestReport.xml
@@ -49,7 +48,7 @@ jobs:
           min-coverage-changed-files: 80
 
       - name: Generate javadoc
-        working-directory: ${{ steps.find_task.outputs.task_dir }}
+        working-directory: ./${{ steps.find_task.outputs.task_dir }}
         run: ./gradlew javadoc
 
       - name: Publish javadoc
