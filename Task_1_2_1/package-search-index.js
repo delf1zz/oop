@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"ru.nsu.egorov"},{"l":"ru.nsu.egorov.edge"},{"l":"ru.nsu.egorov.exception"},{"l":"ru.nsu.egorov.io"},{"l":"ru.nsu.egorov.sort"}];updateSearchResults();
