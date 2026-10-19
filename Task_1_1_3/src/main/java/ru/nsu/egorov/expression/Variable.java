@@ -37,13 +37,14 @@ public class Variable extends Expression {
     @Override
     public double eval(Map<String, Double> variables) {
         if (!variables.containsKey(name)) {
-            throw new IllegalArgumentException("Не задано значение для переменной: " + name);
+            throw new IllegalArgumentException(
+                    "Не задано значение для переменной: " + name);
         }
         return variables.get(name);
     }
 
     /**
-     * Возвращает производную переменной: 1, если имя совпадает с переменной дифференцирования, иначе 0.
+     * Возвращает производную переменной.
      *
      * @param variable имя переменной дифференцирования
      * @return число 1 или 0
@@ -57,7 +58,7 @@ public class Variable extends Expression {
     }
 
     /**
-     * Возвращает имя переменной в качестве строкового представления.
+     * Возвращает имя переменной.
      *
      * @return имя переменной
      */
@@ -67,7 +68,7 @@ public class Variable extends Expression {
     }
 
     /**
-     * Возвращает текущую переменную без изменений, так как упростить её нельзя.
+     * Возвращает текущую переменную без изменений.
      *
      * @return текущий объект Variable
      */

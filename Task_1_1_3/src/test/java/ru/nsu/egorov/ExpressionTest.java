@@ -23,16 +23,16 @@ class ExpressionTest {
     @Test
     @DisplayName("Тестирование Number")
     void testNumber() {
-        Number nInt = new Number(5);
-        Number nFloat = new Number(5.5);
+        Number numberInt = new Number(5);
+        assertEquals(5.0, numberInt.eval(Map.of()));
+        assertEquals(5.0, numberInt.eval(""));
+        assertEquals(5.0, numberInt.getValue());
+        assertEquals("5", numberInt.print());
+        assertEquals("0", numberInt.derivative("x").print());
+        assertTrue(numberInt.simplify() instanceof Number);
 
-        assertEquals(5.0, nInt.eval(Map.of()));
-        assertEquals(5.0, nInt.eval(""));
-        assertEquals(5.0, nInt.getValue());
-        assertEquals("5", nInt.print());
-        assertEquals("5.5", nFloat.print());
-        assertEquals("0", nInt.derivative("x").print());
-        assertTrue(nInt.simplify() instanceof Number);
+        Number numberFloat = new Number(5.5);
+        assertEquals("5.5", numberFloat.print());
     }
 
     @Test
@@ -121,7 +121,8 @@ class ExpressionTest {
         assertEquals("(x/y)", mixedDiv.simplify().print());
         assertEquals(2.0, mixedDiv.eval("x = 10; y = 5"));
 
-        assertThrows(ArithmeticException.class, () -> new Div(new Number(5), new Number(0)).eval(Map.of()));
+        assertThrows(ArithmeticException.class, () -> new Div(
+                new Number(5), new Number(0)).eval(Map.of()));
         assertEquals("(((1*y)-(x*0))/(y*y))", mixedDiv.derivative("x").print());
     }
 

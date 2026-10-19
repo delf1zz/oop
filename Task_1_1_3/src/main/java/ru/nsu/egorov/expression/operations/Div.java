@@ -50,26 +50,26 @@ public class Div extends Expression {
 
     @Override
     public Expression simplify() {
-        Expression sLeft = left.simplify();
-        Expression sRight = right.simplify();
+        Expression simplifiedLeft = left.simplify();
+        Expression simplifiedRight = right.simplify();
 
-        if (sLeft instanceof Number && sRight instanceof Number) {
-            return new Number(sLeft.eval(Map.of()) / sRight.eval(Map.of()));
+        if (simplifiedLeft instanceof Number && simplifiedRight instanceof Number) {
+            return new Number(simplifiedLeft.eval(Map.of()) / simplifiedRight.eval(Map.of()));
         }
 
-        if (isConstant(sLeft, 0)) {
+        if (isConstant(simplifiedLeft, 0)) {
             return new Number(0);
         }
 
-        if (isConstant(sRight, 1)) {
-            return sLeft;
+        if (isConstant(simplifiedRight, 1)) {
+            return simplifiedLeft;
         }
 
-        if (sLeft.print().equals(sRight.print())) {
+        if (simplifiedLeft.print().equals(simplifiedRight.print())) {
             return new Number(1);
         }
 
-        return new Div(sLeft, sRight);
+        return new Div(simplifiedLeft, simplifiedRight);
     }
 
     private boolean isConstant(Expression expr, double value) {

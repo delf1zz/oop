@@ -36,7 +36,8 @@ public class ExpressionParser {
         this.pos = 0;
         Expression result = parseExpression();
         if (pos < src.length()) {
-            throw new IllegalArgumentException("Лишние символы в конце строки: " + src.substring(pos));
+            throw new IllegalArgumentException(
+                    "Лишние символы в конце строки: " + src.substring(pos));
         }
         return result;
     }
@@ -49,7 +50,7 @@ public class ExpressionParser {
         char ch = src.charAt(pos);
         if (ch == '(') {
             pos++;
-            Expression left = parseExpression();
+            final Expression left = parseExpression();
 
             if (pos >= src.length()) {
                 throw new IllegalArgumentException("Ожидался бинарный оператор");
@@ -83,7 +84,8 @@ public class ExpressionParser {
         }
 
         if (start == pos) {
-            throw new IllegalArgumentException("Ожидался идентификатор или число на позиции " + pos);
+            throw new IllegalArgumentException(
+                    "Ожидался идентификатор или число на позиции " + pos);
         }
 
         String token = src.substring(start, pos);

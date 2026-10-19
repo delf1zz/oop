@@ -40,22 +40,22 @@ public class Sub extends Expression {
 
     @Override
     public Expression simplify() {
-        Expression sLeft = left.simplify();
-        Expression sRight = right.simplify();
+        Expression simplifiedLeft = left.simplify();
+        Expression simplifiedRight = right.simplify();
 
-        if (sLeft instanceof Number && sRight instanceof Number) {
-            return new Number(sLeft.eval(Map.of()) - sRight.eval(Map.of()));
+        if (simplifiedLeft instanceof Number && simplifiedRight instanceof Number) {
+            return new Number(simplifiedLeft.eval(Map.of()) - simplifiedRight.eval(Map.of()));
         }
 
-        if (sLeft.print().equals(sRight.print())) {
+        if (simplifiedLeft.print().equals(simplifiedRight.print())) {
             return new Number(0);
         }
 
-        if (isConstant(sRight, 0)) {
-            return sLeft;
+        if (isConstant(simplifiedRight, 0)) {
+            return simplifiedLeft;
         }
 
-        return new Sub(sLeft, sRight);
+        return new Sub(simplifiedLeft, simplifiedRight);
     }
 
     private boolean isConstant(Expression expr, double value) {

@@ -18,20 +18,20 @@ class ExpressionParserTest {
     void testValidExpressions() {
         ExpressionParser parser = new ExpressionParser();
 
-        Expression eAdd = parser.parse("(x+2)");
-        assertEquals("(x+2)", eAdd.print());
+        Expression parsedAdd = parser.parse("(x+2)");
+        assertEquals("(x+2)", parsedAdd.print());
 
-        Expression eSub = parser.parse("(5-3)");
-        assertEquals("(5-3)", eSub.print());
+        Expression parsedSub = parser.parse("(5-3)");
+        assertEquals("(5-3)", parsedSub.print());
 
-        Expression eMul = parser.parse("(2*y)");
-        assertEquals("(2*y)", eMul.print());
+        Expression parsedMul = parser.parse("(2*y)");
+        assertEquals("(2*y)", parsedMul.print());
 
-        Expression eDiv = parser.parse("(8/4)");
-        assertEquals("(8/4)", eDiv.print());
+        Expression parsedDiv = parser.parse("(8/4)");
+        assertEquals("(8/4)", parsedDiv.print());
 
-        Expression eFloat = parser.parse("(x+3.14)");
-        assertEquals("(x+3.14)", eFloat.print());
+        Expression parsedFloat = parser.parse("(x+3.14)");
+        assertEquals("(x+3.14)", parsedFloat.print());
 
         assertEquals("42", parser.parse("42").print());
         assertEquals("varName", parser.parse("varName").print());

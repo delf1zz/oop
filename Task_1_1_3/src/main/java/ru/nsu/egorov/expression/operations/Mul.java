@@ -43,26 +43,26 @@ public class Mul extends Expression {
 
     @Override
     public Expression simplify() {
-        Expression sLeft = left.simplify();
-        Expression sRight = right.simplify();
+        Expression simplifiedLeft = left.simplify();
+        Expression simplifiedRight = right.simplify();
 
-        if (sLeft instanceof Number && sRight instanceof Number) {
-            return new Number(sLeft.eval(Map.of()) * sRight.eval(Map.of()));
+        if (simplifiedLeft instanceof Number && simplifiedRight instanceof Number) {
+            return new Number(simplifiedLeft.eval(Map.of()) * simplifiedRight.eval(Map.of()));
         }
 
-        if (isConstant(sLeft, 0) || isConstant(sRight, 0)) {
+        if (isConstant(simplifiedLeft, 0) || isConstant(simplifiedRight, 0)) {
             return new Number(0);
         }
 
-        if (isConstant(sLeft, 1)) {
-            return sRight;
+        if (isConstant(simplifiedLeft, 1)) {
+            return simplifiedRight;
         }
 
-        if (isConstant(sRight, 1)) {
-            return sLeft;
+        if (isConstant(simplifiedRight, 1)) {
+            return simplifiedLeft;
         }
 
-        return new Mul(sLeft, sRight);
+        return new Mul(simplifiedLeft, simplifiedRight);
     }
 
     private boolean isConstant(Expression expr, double value) {
