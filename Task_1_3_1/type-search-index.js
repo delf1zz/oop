@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ru.nsu.egorov.substring.finder","l":"KmpSubstringFinder"},{"p":"ru.nsu.egorov.substring.finder","l":"SubstringFinder"},{"p":"ru.nsu.egorov.substring","l":"SubstringSearcher"}];updateSearchResults();

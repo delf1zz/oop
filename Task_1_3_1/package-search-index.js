@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"ru.nsu.egorov.substring"},{"l":"ru.nsu.egorov.substring.finder"}];updateSearchResults();
